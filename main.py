@@ -9,7 +9,7 @@ hrir_file_path = "000e030a.wav"  # mit kemar as a sample
 hrir_data, hrir_sr = sf.read(hrir_file_path)
 
 
-# numba actually slows down this computation.
+# numba actually slows down this computation. (0.117s without; 0.779s with on my macbook air)
 # @numba.njit
 def hrtf_calculation():
     nfft = len(hrir_data) * 8
