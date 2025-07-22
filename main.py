@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import soundfile as sf
-import numba
+# import numba
 
 
-hrir_file_path = "000e030a.wav"  # mit kemar as a sample
+hrir_file_path = "000e030a.wav"  # mit kemar as an example
 hrir_data, hrir_sr = sf.read(hrir_file_path)
 
 
-# numba actually slows down this computation. (0.117s without; 0.779s with on my macbook air)
+# numba actually slows down this computation. (0.117s without; 0.779s with on my base m2 macbook air)
 # @numba.njit
 def hrtf_calculation():
     nfft = len(hrir_data) * 8
