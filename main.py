@@ -1,15 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 import soundfile as sf
-# import numba
 
+# uncomment if you're timing
+# import time
+#
+# only uncomment if using numba
+# import numba
 
 hrir_file_path = "000e030a.wav"  # mit kemar as an example
 hrir_data, hrir_sr = sf.read(hrir_file_path)
 
 
 # numba actually slows down this computation. (0.117s without; 0.779s with on my base m2 macbook air)
+# only uncomment if using numba
 # @numba.njit
 def hrtf_calculation():
     nfft = len(hrir_data) * 8
@@ -30,8 +34,13 @@ def plotting_function(in_f_axis, in_hrtf_mag_db):
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Magnitude (dB)")
     plt.legend(["Left", "Right"])
-    plt.show(block=False)
-    plt.close()
+
+    # uncomment these if you're timing
+    # plt.show(block=False)
+    # plt.close()
+
+    # comment this out if you're timing
+    plt.show()
 
 
 def main_function():
@@ -40,6 +49,7 @@ def main_function():
 
 
 if __name__ == "__main__":
-    start_time = time.time()
+    # uncomment these commented if you're timing
+    # start_time = time.time()
     main_function()
-    print("---- %s seconds ----" % (time.time() - start_time))
+    # print("---- %s seconds ----" % (time.time() - start_time))
