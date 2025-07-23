@@ -4,11 +4,11 @@ import soundfile as sf
 
 # uncomment if you're timing
 # import time
-#
+
 # only uncomment if using numba
 # import numba
 
-hrir_file_path = "000e030a.wav"  # mit kemar as an example
+hrir_file_path = "000e030a.wav"  # dolby hrtf near at 30 deg as an example
 hrir_data, hrir_sr = sf.read(hrir_file_path)
 
 
